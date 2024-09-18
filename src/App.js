@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [contador, setContador] = useState(0);
+
+  const incrementar = () => {
+    setContador(contador + 1);
+  };
+
+  const decrementar = () => {
+    if (contador > 0) {
+      setContador(contador - 1);
+    }
+  };
+
+  const reiniciar = () => {
+    setContador(0);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Contador: {contador}</h1>
+      <button onClick={incrementar}>Incrementar</button>
+      <button onClick={decrementar}>Decrementar</button>
+      <button onClick={reiniciar}>Reiniciar</button>
     </div>
   );
 }
