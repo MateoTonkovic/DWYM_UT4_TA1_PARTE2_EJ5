@@ -2,28 +2,19 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [contador, setContador] = useState(0);
+  const [isTextVisible, setIsTextVisible] = useState(false);
 
-  const incrementar = () => {
-    setContador(contador + 1);
-  };
-
-  const decrementar = () => {
-    if (contador > 0) {
-      setContador(contador - 1);
-    }
-  };
-
-  const reiniciar = () => {
-    setContador(0);
+  const toggleText = () => {
+    setIsTextVisible(!isTextVisible);
   };
 
   return (
-    <div>
-      <h1>Contador: {contador}</h1>
-      <button onClick={incrementar}>Incrementar</button>
-      <button onClick={decrementar}>Decrementar</button>
-      <button onClick={reiniciar}>Reiniciar</button>
+    <div className="App">
+      <h1>Toggle Text Example</h1>
+      <button onClick={toggleText}>
+        {isTextVisible ? "Ocultar" : "Mostrar"}
+      </button>
+      {isTextVisible && <p>Hola.</p>}
     </div>
   );
 }
