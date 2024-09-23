@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Toggle Text Example</h1>
+      <h1>Esconder o Mostrar texto:</h1>
       <button onClick={toggleText}>
         {isTextVisible ? "Ocultar" : "Mostrar"}
       </button>
